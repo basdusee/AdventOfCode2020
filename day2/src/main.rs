@@ -2,6 +2,7 @@ use std::fs::File;
 use std::io::{self, BufRead, Error};
 use std::path::Path;
 
+// still some stuff I ripped from the internet to read a file
 fn readfile<P>(filename: P) -> io::Result<io::Lines::<io::BufReader<File>>>
 where P: AsRef<Path>, {
     let file = File::open(filename)?;
@@ -44,6 +45,7 @@ fn main() -> Result<(), Error> {
     // 7-10 h: phdkrrhkmhh
     // rule is: 7-10 are positions
     // on _only one_ of the positions, char _must_ be present
+    // and use way too many intermediate vars please (sigh what a mess...)
     if let Ok(lines) = readfile("input.txt") {
         for one_line in lines {
             if let Ok(line) = one_line {
@@ -53,7 +55,6 @@ fn main() -> Result<(), Error> {
                 let last = positions.next().unwrap().parse::<usize>().unwrap();
                 let character = elements.next().unwrap().strip_suffix(':').unwrap().chars().nth(0).unwrap();
                 let password: Vec<char> = elements.next().unwrap().chars().collect::<Vec<_>>();
-                // println!("From password {:?} char nr {} is {} and char nr {} is {}", password, first, password[first-1], last, password[last-1]);
                 let test1: bool = password[first-1] == character;
                 let test2: bool = password[last-1] == character;
                 if test1 ^ test2 {
@@ -67,9 +68,6 @@ fn main() -> Result<(), Error> {
 
     println!("New rules: Found {} valid passwords and {} invalid passwords", valid, invalid);
 
-    // br.lines()
-    //    .map(|line| line.and_then(|v| v.parse().map_err(|e| Error::new(ErrorKind::InvalidData, e))))
-    //   .collect()
-
+    // main is allways happy, no matter what happens..
     Ok(())
 }

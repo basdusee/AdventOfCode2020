@@ -1,6 +1,7 @@
 use std::fs::File;
 use std::io::{BufRead, BufReader, Error, ErrorKind, Read};
 
+// Just code I ripped somewhere of the internet to read a file
 fn readfile<R: Read>(io: R) -> Result<Vec<i64>, Error> {
     let br = BufReader::new(io);
     br.lines()
@@ -13,6 +14,7 @@ fn main() -> Result<(), Error> {
     // Create a path to the file
     let vec = readfile(File::open("input.txt")?)?;
 
+    // Do some very ugly for-loop nesting (this can be optimized as Fck)
     for x in &vec {
         for y in &vec {
             if x + y == 2020 {
@@ -21,6 +23,7 @@ fn main() -> Result<(), Error> {
         };
     };
 
+    // Do some very ugly for-loop nesting again (this can be optimized even more)
     for x in &vec {
         for y in &vec {
             for z in &vec {
@@ -31,6 +34,7 @@ fn main() -> Result<(), Error> {
         };
     };
 
+    // This is useful, a main which always returns Ok...
     Ok(())
 
 }
