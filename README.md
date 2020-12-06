@@ -19,5 +19,5 @@ If you are a corporate recruiter and are impressed by this code while you were s
 If you are a recruiter and aren't at all impressed by this code and still want to try and hire me, then please A) let your mental health examined by a professional or B) you are one of those clueless internet headhunters. Please both types, go away also.
 I can't facilitate professional mental health threatment and I'm not what agressive idiotic headhunters are looking for.
 
-That aside, if you are an amateur programmer like me, and you like Rust and like participating in challenges where people who properly can code, are attending too, just do the Advent of Code and inspirate yourself on my clumsy attempts.
+That aside, if you are an amateur programmer like me and you like Rust and like participating in challenges where people who properly can code are attending too, just do the Advent of Code and inspire yourself on my clumsy attempts.
 
